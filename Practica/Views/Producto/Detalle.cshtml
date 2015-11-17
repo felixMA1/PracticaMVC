@@ -1,0 +1,12 @@
+﻿@model Practica.Models.Producto
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalles de @Html.DisplayFor(o => o.nombre)</h2>
+<h3>@Model.fabricante</h3>
+<h3>@Html.DisplayFor(o => o.precioVenta)</h3>
+
+@Html.ActionLink("Volver","Index");
+

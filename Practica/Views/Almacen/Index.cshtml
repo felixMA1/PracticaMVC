@@ -1,0 +1,31 @@
+﻿@using Practica.Models
+@model IEnumerable<Practica.Models.Almacen>
+
+@{
+    ViewBag.Title = "Index";
+    var etiq = ViewBag.etiquetas as List<Etiqueta>;
+}
+@Html.ActionLink("Alta", "Alta")
+<h2 class="text-center">@ViewData["Titulo"]</h2>
+
+@foreach (var et in etiq)
+{
+    <h3>@et.texto</h3>
+}
+@foreach (var almacen in Model)
+{
+@Html.Partial("_fichaAlmacen",almacen)
+}
+
+@section MiJavaScript
+{
+    <script>
+        $(".borrame").click(function () {
+            var r = confirm("Estas seguro?");
+            if (r) {
+                var id = $(this).attr("data-id");
+                location.href = "@Url.Action("Borrar")" +"/" + id;
+            }
+        })
+    </script>
+}

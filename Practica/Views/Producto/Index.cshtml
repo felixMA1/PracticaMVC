@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Practica.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de productos</h2>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-3" style="border: 1px solid seagreen; border-radius: 5px;">
+        <strong>@Html.DisplayNameFor(o => o.nombre):</strong>
+        @Html.DisplayFor(o => item.nombre)
+        @Html.ActionLink("Ver", "Detalle", new { id = item.idProducto })
+        <h5>Almacenes</h5>
+        @foreach (var alm in item.ProductoAlmacen)
+        {
+            @Html.Partial("_fichaAlmacen",alm.Almacen);
+        }
+
+
+    </div>
+}
+

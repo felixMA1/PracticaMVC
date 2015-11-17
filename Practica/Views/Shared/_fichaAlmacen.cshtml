@@ -1,0 +1,10 @@
+﻿@model Practica.Models.Almacen
+    
+<div class="col-md-4 text-center" style="border: 1px solid seagreen; border-radius: 5px;">
+
+    <p><span style="font-weight: bold">Ciudad:</span> @Html.DisplayFor(o => Model.ciudad)</p>
+    <p><span style="font-weight: bold">Codigo Postal:</span> @Html.DisplayFor(o => Model.cp)</p>
+    @*El primer modificar es texto plano, el segundo la vista y el tercero el Controller*@
+    @Html.ActionLink("Modificar", "Modificar","Almacen", new { id = Model.idAlmacen },new { target="_blank"})
+    <a href="#" class="borrame" data-id="@Model.idAlmacen">Borrar</a>
+</div>
